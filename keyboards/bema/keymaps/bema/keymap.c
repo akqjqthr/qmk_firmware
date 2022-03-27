@@ -29,8 +29,6 @@ enum {
     TD_QUOTE,
     TD_GRV,
     TD_DOT,
-    TD_C,
-    TD_V,
     CT_CBL,
     CT_CBR,
     CT_DEL
@@ -88,8 +86,6 @@ qk_tap_dance_action_t tap_dance_actions[] = {
     [TD_QUOTE] = ACTION_TAP_DANCE_DOUBLE(KC_QUOTE, KC_DQUO),
     [TD_GRV] = ACTION_TAP_DANCE_DOUBLE(KC_GRV, KC_TILD),
     [TD_DOT] = ACTION_TAP_DANCE_DOUBLE(KC_DOT, KC_LPRN),
-    [TD_C] = ACTION_TAP_DANCE_DOUBLE(KC_C, KC_LEFT),
-    [TD_V] = ACTION_TAP_DANCE_DOUBLE(KC_V, KC_RGHT),
     [CT_CBL] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, dance_cbl_finished, dance_cbl_reset),
     [CT_CBR] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, dance_cbr_finished, dance_cbr_reset),
     [CT_DEL] = ACTION_TAP_DANCE_DOUBLE(KC_DEL, KC_ALGR)
@@ -114,10 +110,6 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
         case LGUI_T(KC_COLN):
             return 300;
         case ALGR_T(KC_M):
-            return 200;
-        case TD(TD_C):
-            return 200;
-        case TD(TD_V):
             return 200;
         case TD(TD_GRV):
         case TD(TD_BRL):
@@ -144,7 +136,7 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
 const uint16_t PROGMEM test_combo1[] = {KC_N, KC_M, COMBO_END};
 const uint16_t PROGMEM test_combo2[] = {KC_R, KC_T, COMBO_END};
 const uint16_t PROGMEM test_combo3[] = {KC_Y, KC_U, COMBO_END};
-const uint16_t PROGMEM test_combo4[] = {TD(TD_V), KC_B, COMBO_END};
+const uint16_t PROGMEM test_combo4[] = {KC_V, KC_B, COMBO_END};
 const uint16_t PROGMEM test_combo5[] = {U_PST, KC_DEL, COMBO_END};
 const uint16_t PROGMEM test_combo6[] = {KC_H, LSFT_T(KC_J), COMBO_END};
 const uint16_t PROGMEM test_combo7[] = {KC_WH_D, KC_BTN1, COMBO_END};
@@ -166,7 +158,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|-------------------+-------------------+-------------------+-------------------+-------------------|                                         |-----------------+-------------------+-------------------+-------------------+-------------------|
             LGUI_T(KC_A),       LALT_T(KC_S),       LCTL_T(KC_D),       LSFT_T(KC_F),               KC_G,                                                       KC_H,       LSFT_T(KC_J),       LCTL_T(KC_K),       LALT_T(KC_L),    LGUI_T(KC_COLN), 
   //|-------------------+-------------------+-------------------+-------------------+-------------------|                                         |-----------------+-------------------+-------------------+-------------------+-------------------|
-                    KC_Z,       ALGR_T(KC_X),           TD(TD_C),           TD(TD_V),               KC_B,                                                       KC_N,               KC_M,            KC_COMM,     ALGR_T(KC_DOT),LT(BUTTON, KC_SLSH),
+                    KC_Z,       ALGR_T(KC_X),               KC_C,               KC_V,               KC_B,                                                       KC_N,               KC_M,            KC_COMM,     ALGR_T(KC_DOT),LT(BUTTON, KC_SLSH),
   //|-------------------+-------------------+-------------------+-------------------+-------------------|                                         |-----------------+-------------------+-------------------+-------------------+-------------------|
                                                                      LT(FUN, KC_ESC),    LT(NAV, KC_BSPC),     LT(NUM, KC_ENT),                U_NA,             U_NA,  LT(MEDIA, KC_SPC)
   //                                                            |-------------------+-------------------+--------------------+--------------------+-----------------+-------------------|
