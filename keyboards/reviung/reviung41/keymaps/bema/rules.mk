@@ -1,3 +1,5 @@
+CONSOLE_ENABLE = no
+AUDIO_ENABLE   = no
 MOUSEKEY_ENABLE     = yes     # Mouse keys
 TAP_DANCE_ENABLE = yes
 COMBO_ENABLE = yes
